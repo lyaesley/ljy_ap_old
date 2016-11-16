@@ -1,5 +1,12 @@
 package com.lyae.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,9 +15,30 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lyae.model.Epl;
+
 @Controller
 public class CommonController {
 	Logger log = Logger.getLogger(CommonController.class.getName());
+	
+	
+	@RequestMapping(value="/jsonTest")
+	public void jackson() throws IOException{
+		byte[] mapData = Files.readAllBytes(Paths.get("D://dev/workspace/Ljy_AP/src/main/resources/json/epl.txt"));
+//		Map<String,String> myMap = new HashMap<String, String>();
+		
+		//1. create a mapper
+		ObjectMapper objectMapper = new ObjectMapper();
+		//2. As Array
+//		myMap = objectMapper.readValue(mapData, HashMap.class);
+		//3. As List
+		List<HashMap> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, HashMap.class));  
+//		List<Epl> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, Epl.class));  
+		System.out.println("Map is : "+myList);
+		
+		
+	}
 	
 	@RequestMapping(value="/common/parseJsonFile")
 	public void parseJsonFile(){
