@@ -25,7 +25,7 @@ public class CommonController {
 	
 	@RequestMapping(value="/jsonTest")
 	public void jackson() throws IOException{
-		byte[] mapData = Files.readAllBytes(Paths.get("D://dev/workspace/Ljy_AP/src/main/resources/json/epl.txt"));
+		byte[] mapData = Files.readAllBytes(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.txt"));
 //		Map<String,String> myMap = new HashMap<String, String>();
 		
 		//1. create a mapper
