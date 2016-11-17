@@ -1,10 +1,13 @@
 package com.lyae.model;
 
-public class Epl {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Epl {
+	
 	private String date;
-	private String homeTeam;
-	private String awayTeam;
+	private String hometeam;
+	private String awayteam;
 	private String ftr;
 	private int fthg;
 	private int ftag;
@@ -15,17 +18,17 @@ public class Epl {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getHomeTeam() {
-		return homeTeam;
+	public String getHometeam() {
+		return hometeam;
 	}
-	public void setHomeTeam(String homeTeam) {
-		this.homeTeam = homeTeam;
+	public void setHometeam(String hometeam) {
+		this.hometeam = hometeam;
 	}
-	public String getAwayTeam() {
-		return awayTeam;
+	public String getAwayteam() {
+		return awayteam;
 	}
-	public void setAwayTeam(String awayTeam) {
-		this.awayTeam = awayTeam;
+	public void setAwayteam(String awayteam) {
+		this.awayteam = awayteam;
 	}
 	public String getFtr() {
 		return ftr;
@@ -45,12 +48,12 @@ public class Epl {
 	public void setFtag(int ftag) {
 		this.ftag = ftag;
 	}
-	
 	@Override
 	public String toString() {
-		return "Epl [getDate()=" + getDate() + ", getHomeTeam()=" + getHomeTeam() + ", getAwayTeam()=" + getAwayTeam()
-				+ ", getFtr()=" + getFtr() + ", getFthg()=" + getFthg() + ", getFtag()=" + getFtag() + "]";
+		return "Epl [date=" + date + ", hometeam=" + hometeam + ", awayteam=" + awayteam + ", ftr=" + ftr + ", fthg="
+				+ fthg + ", ftag=" + ftag + "]";
 	}
+	
 	
 	
 }

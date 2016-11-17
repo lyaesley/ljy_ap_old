@@ -16,6 +16,9 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lyae.model.Epl;
 
@@ -28,19 +31,37 @@ public class CommonController {
 	public void jackson() throws IOException{
 		byte[] mapData = Files.readAllBytes(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.txt"));
 //		Map<String,String> myMap = new HashMap<String, String>();
-		
+		List<String> jsonTxt =  Files.readAllLines(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.txt"));
 		//1. create a mapper
 		ObjectMapper objectMapper = new ObjectMapper();
+		try{
+			
 		//2. As Array
 //		myMap = objectMapper.readValue(mapData, HashMap.class);
 		//3. As List
-		List<LinkedHashMap> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, LinkedHashMap.class));  
-//		List<Epl> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, Epl.class));  
-		System.out.println("Map is : "+myList);
-		System.out.println(myList.get(0).get(1));
-		if(log.isDebugEnabled()){
-			log.debug(myList.get(0).get("hometeam"));
+//		List<LinkedHashMap> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, LinkedHashMap.class));  
+//		System.out.println("Map is : "+myList);
+//		System.out.println(myList.get(0).get(1));
+//
+		//4. As List Another
+//		List<LinkedHashMap> myList = objectMapper.readValue(mapData, new TypeReference<List<LinkedHashMap>>(){});
+		List<Epl> eplList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, Epl.class));  
+			if(log.isDebugEnabled()){
+				log.debug(jsonTxt);
+				log.debug(eplList);
+				log.debug(eplList.get(0));
+				log.debug(eplList.get(1));
+				log.debug(eplList.get(1).getHometeam());
+			}
+
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+	
 	}
 	
 	@RequestMapping(value="/common/parseJsonFile")
