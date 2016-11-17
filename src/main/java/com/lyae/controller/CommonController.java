@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,11 +34,13 @@ public class CommonController {
 		//2. As Array
 //		myMap = objectMapper.readValue(mapData, HashMap.class);
 		//3. As List
-		List<HashMap> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, HashMap.class));  
+		List<LinkedHashMap> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, LinkedHashMap.class));  
 //		List<Epl> myList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, Epl.class));  
 		System.out.println("Map is : "+myList);
-		
-		
+		System.out.println(myList.get(0).get(1));
+		if(log.isDebugEnabled()){
+			log.debug(myList.get(0).get("hometeam"));
+		}
 	}
 	
 	@RequestMapping(value="/common/parseJsonFile")
