@@ -21,7 +21,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lyae.model.Soccer;
+import com.lyae.model.MatchRecord;
 
 @Controller
 public class CommonController {
@@ -29,13 +29,13 @@ public class CommonController {
 	
 	
 	@RequestMapping(value="/jsonTest")
-	public List<Soccer> jackson() throws IOException{
+	public List<MatchRecord> jackson() throws IOException{
 		byte[] mapData = Files.readAllBytes(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.json"));
 //		Map<String,String> myMap = new HashMap<String, String>();
 		List<String> jsonTxt =  Files.readAllLines(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.json"));
 		//1. create a mapper
 		ObjectMapper objectMapper = new ObjectMapper();
-		List<Soccer> eplList = new ArrayList<Soccer>();
+		List<MatchRecord> eplList = new ArrayList<MatchRecord>();
 		try{
 			
 		//2. As Array
@@ -48,7 +48,7 @@ public class CommonController {
 		//4. As List Another
 //		List<LinkedHashMap> myList = objectMapper.readValue(mapData, new TypeReference<List<LinkedHashMap>>(){});
 //		List<Epl> eplList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, Epl.class));  
-		eplList = objectMapper.readValue(mapData, new TypeReference<List<Soccer>>(){});  
+		eplList = objectMapper.readValue(mapData, new TypeReference<List<MatchRecord>>(){});  
 			if(log.isDebugEnabled()){
 				log.debug(jsonTxt);
 				log.debug(eplList);
