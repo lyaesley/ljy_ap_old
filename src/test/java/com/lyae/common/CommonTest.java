@@ -24,10 +24,15 @@ public class CommonTest {
 		}
 //		System.out.println("start test");
 		List<MatchRecord> epl = new ArrayList<MatchRecord>();
+		List<Team> sortList = new ArrayList<Team>();
 		epl = dao.jasonToObject("epl");
-		System.out.println(epl.size());
+		System.out.println(epl);
 		HashMap<String, Team> teamObj = dao.getTeamNameListWithSetTeamObject(epl);
 		System.out.println("11"+teamObj);
+		dao.setMatchResult(epl, teamObj);
+		System.out.println("22"+teamObj);
+		sortList = dao.sortDescByPoint(epl);
+		
 	}
 
 }

@@ -1,6 +1,8 @@
 package com.lyae.model;
 
-public class Team {
+import java.util.Comparator;
+
+public class Team implements Comparator<Team>{
 
 	private String teamName;
 	private int matchCount;
@@ -12,6 +14,11 @@ public class Team {
 	private int goalLoss;
 	private int goalDiff;
 	
+	
+	public Team() {
+		super();
+	}
+
 	public Team(String teamName) {
 		super();
 		this.teamName = teamName;
@@ -72,12 +79,47 @@ public class Team {
 		this.goalDiff = goalDiff;
 	}
 	
+	// 결과 누적 저장 
+	public void setSumTeamName(String teamName) {
+		this.teamName += teamName;
+	}
+	public void setSumMatchCount() {
+		this.matchCount += 1;
+	}
+	public void setSumPoint(int point) {
+		this.point += point;
+	}
+	public void setSumWin(int win) {
+		this.win += win;
+	}
+	public void setSumDraw(int draw) {
+		this.draw += draw;
+	}
+	public void setSumLose(int lose) {
+		this.lose += lose;
+	}
+	public void setSumGoal(int goal) {
+		this.goal += goal;
+	}
+	public void setSumGoalLoss(int goalLoss) {
+		this.goalLoss += goalLoss;
+	}
+	public void setGoalDiff() {
+		this.goalDiff = this.goal - this.goalLoss;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Team [teamName=" + teamName + ", matchCount=" + matchCount + ", point=" + point + ", win=" + win
 				+ ", draw=" + draw + ", lose=" + lose + ", goal=" + goal + ", goalLoss=" + goalLoss + ", goalDiff="
 				+ goalDiff + "]";
 	}
-	
-	
+
+	@Override
+	public int compare(Team o1, Team o2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

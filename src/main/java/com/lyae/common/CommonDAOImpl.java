@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -68,8 +70,8 @@ public class CommonDAOImpl implements CommonDAO{
 	
 	public HashMap<String, Team> getTeamNameListWithSetTeamObject(List<MatchRecord> list){
 		Iterator<MatchRecord> iter = list.iterator();
-		TreeSet<String> deDuplication = new TreeSet<String>();
-//		HashSet<String> deDuplication = new HashSet<String>();
+//		TreeSet<String> deDuplication = new TreeSet<String>();
+		HashSet<String> deDuplication = new HashSet<String>();
 		
 		while(iter.hasNext()){
 			deDuplication.add(iter.next().getHometeam());
@@ -103,6 +105,60 @@ public class CommonDAOImpl implements CommonDAO{
 		return teamObjList;
 		
 	}
+	
+	public void setMatchResult(List<MatchRecord> list, HashMap<String, Team> teamObjList){
+		
+//		Team homeObj = new Team();
+//		Team awayObj = new Team();
+		MatchRecord row = null;
+		for(int i= 0; i<list.size(); i++){
+			row = list.get(i);
+			Team homeObj = teamObjList.get(row.getHometeam());
+			Team awayObj = teamObjList.get(row.getAwayteam());
+			
+			//H=HomeTeam 승 , A=AwayTeam 승, D=Draw
+			if(row.getFtr().equals("H")){
+				homeObj.setSumWin(1);	//H승 +1
+				awayObj.setSumLose(1);	//A패  +1
+				
+				homeObj.setSumPoint(3); //H승점 +3
+			}else if (row.getFtr().equals("A")){
+				homeObj.setSumLose(1);	//H패 +1
+				awayObj.setSumWin(1);	//A승 +1
+				
+				awayObj.setSumPoint(3); //A승점 +3
+			}else {
+				homeObj.setSumDraw(1);	//H무 +1
+				awayObj.setSumDraw(1);	//A무 +1
+				
+				homeObj.setSumPoint(1); //H승점 +1
+				awayObj.setSumPoint(1); //A승점 +1
+			}
+				
+			homeObj.setSumMatchCount(); //경기수 +1
+			awayObj.setSumMatchCount(); //경기수 +1
+			
+			homeObj.setSumGoal(row.getFthg()); //H득점 +
+			awayObj.setSumGoal(row.getFtag()); //A득점 +
 
+			homeObj.setSumGoalLoss(row.getFtag()); //H실점 +
+			awayObj.setSumGoalLoss(row.getFthg()); //A실점 +
+			
+			homeObj.setGoalDiff();
+			awayObj.setGoalDiff();
+		}//end of for
+	}
+	
+	public List<Team> sortDescByPoint(HashMap<String, Team> teamObjList){
+		List<Team> list = new ArrayList<Team>(teamObjList.values());
+		Collections.sort(list, new Comparator<Team>() {
+			@Override
+			public int compare(Team o1, Team o2) {
+				// TODO Auto-generated method stub
+				return o1.getPoint() > o2.getPoint() ? -1 : o1.getPoint() < o2.getPoint() ? 1 : 0 ;
+			}
+		});
+		return list;
+	}
 }
 
