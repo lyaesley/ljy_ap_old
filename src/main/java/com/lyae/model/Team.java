@@ -119,7 +119,15 @@ public class Team implements Comparator<Team>{
 	@Override
 	public int compare(Team o1, Team o2) {
 		// TODO Auto-generated method stub
-		return 0;
+					if(o1.getPoint() > o2.getPoint()){
+						return -1;
+					}else if (o1.getPoint() < o2.getPoint()){
+						return 1;
+					}else if (o1.getPoint() == o2.getPoint() && o1.getGoalDiff() > o2.getGoalDiff()){
+						return -1;
+					}else {
+						return 0;
+					}
 	}
 
 }

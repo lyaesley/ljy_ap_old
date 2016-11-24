@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.NavigableSet;
 import java.util.TreeSet;
 
@@ -23,7 +24,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lyae.controller.CommonController;
+import com.lyae.controller.TestController;
 import com.lyae.model.MatchRecord;
 import com.lyae.model.Team;
 
@@ -52,12 +53,14 @@ public class CommonDAOImpl implements CommonDAO{
 		//4. As List Another
 //		List<LinkedHashMap> myList = objectMapper.readValue(mapData, new TypeReference<List<LinkedHashMap>>(){});
 //		List<Epl> eplList = objectMapper.readValue(mapData,objectMapper.getTypeFactory().constructCollectionType(List.class, Epl.class));  
-		matchRecordList = objectMapper.readValue(mapData, new TypeReference<List<MatchRecord>>(){});  
+		matchRecordList = objectMapper.readValue(mapData, new TypeReference<List<MatchRecord>>(){});
+			/*
 			if(log.isDebugEnabled()){
-				log.debug(jsonTxt);
-				log.debug(matchRecordList);
-				log.debug(matchRecordList.size());
+				log.fatal(jsonTxt);
+				log.fatal(matchRecordList);
+				log.fatal(matchRecordList.size());
 			}
+			*/
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -80,8 +83,11 @@ public class CommonDAOImpl implements CommonDAO{
 		
 		ArrayList<String> teamNameList = new ArrayList<String>(deDuplication);
 		
-		System.out.println("teamlist = " + teamNameList);
+//		System.out.println("teamlist = " + teamNameList);
 
+		if(log.isDebugEnabled()){
+			log.debug(teamNameList);
+		}
 		
 		HashMap<String, Team> teamObjList = new HashMap<String, Team>();
 		
@@ -101,6 +107,8 @@ public class CommonDAOImpl implements CommonDAO{
 		//desc sort
 //		NavigableSet<String> descSet = tSet.descendingSet();
 //		System.out.println(descSet);
+		
+		
 		
 		return teamObjList;
 		
@@ -148,17 +156,109 @@ public class CommonDAOImpl implements CommonDAO{
 			awayObj.setGoalDiff();
 		}//end of for
 	}
-	
+
+/* Comparator 내부 클래스 사용
 	public List<Team> sortDescByPoint(HashMap<String, Team> teamObjList){
 		List<Team> list = new ArrayList<Team>(teamObjList.values());
 		Collections.sort(list, new Comparator<Team>() {
 			@Override
 			public int compare(Team o1, Team o2) {
 				// TODO Auto-generated method stub
-				return o1.getPoint() > o2.getPoint() ? -1 : o1.getPoint() < o2.getPoint() ? 1 : 0 ;
+				//  if same win sort getPoint 
+//				return o1.getPoint() > o2.getPoint() ? -1 : o1.getPoint() < o2.getPoint() ? 1 : 0 ;
+				return ( o1.getPoint() > o2.getPoint() && o1.getGoalDiff() > o2.getGoalDiff() ) ? -1 :( o1.getPoint() < o2.getPoint() && o1.getGoalDiff() < o2.getGoalDiff() )? 1 : 0 ;
 			}
 		});
 		return list;
+	}
+*/
+	//승점
+	public List<Team> sortDescByPoint(HashMap<String, Team> teamObjList){
+		List<Team> list = new ArrayList<Team>(teamObjList.values());
+		Collections.sort(list, new Team());
+		return list;
+	}
+	
+	//골득실
+	public List<Team> sortDescByGoaldiff(HashMap<String, Team> teamObjList){
+		List<Team> list = new ArrayList<Team>(teamObjList.values());
+		Collections.sort(list, new Comparator<Team>() {
+			@Override
+			public int compare(Team o1, Team o2) {
+				// TODO Auto-generated method stub
+				return o1.getGoalDiff() > o2.getGoalDiff() ? -1 : o1.getGoalDiff() < o2.getGoalDiff() ? 1 : 0 ;
+			}
+		});
+		return list;
+	}
+	
+	//득점
+	public List<Team> sortDescByGoal(HashMap<String, Team> teamObjList){
+		List<Team> list = new ArrayList<Team>();
+		list.addAll(teamObjList.values());
+		Collections.sort(list, new SortDescByGoal());
+		return list;
+	}
+	
+	//실점
+	public List<Team> sortDescByGoalLoss(HashMap<String, Team> teamObjList){
+		List<Team> list = new ArrayList<Team>();
+		list.addAll(teamObjList.values());
+		Collections.sort(list, new SortDescByGoalLoss());
+		return list;
+	}
+	
+	
+	//승점 정렬, 승점이 같으면 골득실
+	class SortDescByPoint implements Comparator<Team>{
+		@Override
+		public int compare(Team o1, Team o2) {
+			// TODO Auto-generated method stub
+			if(o1.getPoint() > o2.getPoint()){
+				return -1;
+			}else if (o1.getPoint() < o2.getPoint()){
+				return 1;
+			}else if (o1.getPoint() == o2.getPoint() && o1.getGoalDiff() > o2.getGoalDiff()){
+				return -1;
+			}else {
+				return 0;
+			}
+		}
+	}// end of SortDescByPoint
+	
+	//득점 정렬, 득점이 같으면 골득실 1>2
+	class SortDescByGoal implements Comparator<Team>{
+		@Override
+		public int compare(Team o1, Team o2) {
+			// TODO Auto-generated method stub
+			if(o1.getGoal() > o2.getGoal()){
+				return -1;
+			}else if (o1.getGoal() < o2.getGoal()){
+				return 1;
+			}else if (o1.getGoal() == o2.getGoal() && o1.getGoalDiff() > o2.getGoalDiff()){
+				return -1;
+			}else {
+				return 0;
+			}
+		}
+	}// end of SortDescByGoal
+	
+	//실점, 실점이 같으면 들실차 1<2
+	class SortDescByGoalLoss implements Comparator<Team>{
+		@Override
+		public int compare(Team o1, Team o2) {
+			// TODO Auto-generated method stub
+			if(o1.getGoalLoss() > o2.getGoalLoss()){
+				return -1;
+			}else if (o1.getGoalLoss() < o2.getGoalLoss()){
+				return 1;
+			}else if (o1.getGoalLoss() == o2.getGoalLoss() && o1.getGoalDiff() < o2.getGoalDiff()){
+				return -1;
+			}else {
+				return 0;
+			}
+		}
+		
 	}
 }
 

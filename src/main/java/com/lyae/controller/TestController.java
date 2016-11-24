@@ -24,8 +24,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lyae.model.MatchRecord;
 
 @Controller
-public class CommonController {
-	Logger log = Logger.getLogger(CommonController.class.getName());
+public class TestController {
+	Logger log = Logger.getLogger(TestController.class.getName());
 	
 	
 	@RequestMapping(value="/jsonTest")
