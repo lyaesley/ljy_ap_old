@@ -1,6 +1,8 @@
 package com.lyae.common;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -32,11 +34,18 @@ import com.lyae.model.Team;
 public class CommonDAOImpl implements CommonDAO{
 	Logger log = Logger.getLogger(CommonDAOImpl.class.getName());
 	
-	public List<MatchRecord> jasonToObject(String leageName) throws IOException{
-		byte[] mapData = Files.readAllBytes(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/"+leageName+".json"));
+	public List<MatchRecord> jasonToObject(String leagueName) throws IOException{
+		String path = this.getClass().getResource("/json/"+leagueName+".json").getPath();
+		// path == /C:/Dev/workspace/Ljy_AP/target/classes/json/epl.json
+		path=path.substring(1);
+		// 맨 앞에 /제거 
+		
+		byte[] mapData = Files.readAllBytes(Paths.get(path));
+		
+//		byte[] mapData = Files.readAllBytes(Paths.get("C://Dev/workspace/Ljy_AP/src/main/resources/json/"+leageName+".json"));
 //		Map<String,String> myMap = new HashMap<String, String>();
 		//로그용
-		List<String> jsonTxt =  Files.readAllLines(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.json"));
+//		List<String> jsonTxt =  Files.readAllLines(Paths.get("C://Dev/workspace/Ljy_AP/src/main/resources/json/epl.json"));
 		//1. create a mapper
 		ObjectMapper objectMapper = new ObjectMapper();
 		//model 선언
