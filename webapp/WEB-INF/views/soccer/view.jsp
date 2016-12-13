@@ -10,47 +10,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>게시판 목록</h2>
+	<h2>${team } 경기 결과</h2>
 	<table class="board_list">
 		<colgroup>
+			<col width="5%"/>
+			<col width="*%"/>
 			<col width="*%"/>
 			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
+			<col width="10%"/>
+			<col width="10%"/>
 		</colgroup>
 		<thead>
 			<tr>
-				<th scope="col">팀</th>
-				<th scope="col">경기수</th>
-				<th scope="col">승점</th>
-				<th scope="col">승</th>
-				<th scope="col">무</th>
-				<th scope="col">패</th>
-				<th scope="col">득점</th>
-				<th scope="col">실점</th>
-				<th scope="col">득실차</th>
+				<th scope="col">라운드</th>
+				<th scope="col">홈팀</th>
+				<th scope="col">어웨이팀</th>
+				<th scope="col">승리팀</th>
+				<th scope="col">홈팀득점(전반)</th>
+				<th scope="col">어웨이팀득점(전반)</th>
 			</tr>
 		</thead>
 		<tbody>
 		
 		<c:choose>
 			<c:when test="${fn:length(list) > 0 }">
-				<c:forEach items="${list }" var="row">
+				<c:forEach items="${list }" var="row" varStatus="status">
 					<tr>
-						<td>${row.teamName }</td>
-						<td>${row.matchCount }</td>
-						<td>${row.point }</td>
-						<td>${row.win }</td>
-						<td>${row.draw }</td>
-						<td>${row.lose }</td>
-						<td>${row.goal }</td>
-						<td>${row.goalLoss }</td>
-						<td>${row.goalDiff }</td>
+						<td>${status.count }</td>
+						<td>${row.hometeam }</td>
+						<td>${row.awayteam }</td>
+						<td>${row.ftr }</td>
+						<td>${row.fthg } (${row.hthg })</td>
+						<td>${row.ftag } (${row.htag })</td>
 					</tr>
 				</c:forEach>
 			</c:when>

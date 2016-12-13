@@ -11,6 +11,9 @@ public class MatchRecord {
 	private String ftr;
 	private int fthg;
 	private int ftag;
+	private int hthg;
+	private int htag;
+	
 	
 	public String getDate() {
 		return date;
@@ -48,11 +51,24 @@ public class MatchRecord {
 	public void setFtag(int ftag) {
 		this.ftag = ftag;
 	}
+	public int getHthg() {
+		return hthg;
+	}
+	public void setHthg(int hthg) {
+		this.hthg = hthg;
+	}
+	public int getHtag() {
+		return htag;
+	}
+	public void setHtag(int htag) {
+		this.htag = htag;
+	}
 	@Override
 	public String toString() {
-		return "Epl [date=" + date + ", hometeam=" + hometeam + ", awayteam=" + awayteam + ", ftr=" + ftr + ", fthg="
-				+ fthg + ", ftag=" + ftag + "]";
+		return "MatchRecord [date=" + date + ", hometeam=" + hometeam + ", awayteam=" + awayteam + ", ftr=" + ftr
+				+ ", fthg=" + fthg + ", ftag=" + ftag + "]";
 	}
+	
 	
 	
 	

@@ -34,11 +34,14 @@ import com.lyae.model.Team;
 public class CommonDAOImpl implements CommonDAO{
 	Logger log = Logger.getLogger(CommonDAOImpl.class.getName());
 	
+	@Override
 	public List<MatchRecord> jasonToObject(String leagueName) throws IOException{
+		List<MatchRecord> matchRecordList = new ArrayList<MatchRecord>();
+		try{
 		String path = this.getClass().getResource("/json/"+leagueName+".json").getPath();
 		// path == /C:/Dev/workspace/Ljy_AP/target/classes/json/epl.json
 		path=path.substring(1);
-		// 맨 앞에 /제거 
+		// 맨 앞에 /제거,  substring : Start index 부터 End index 까지 자름 
 		
 		byte[] mapData = Files.readAllBytes(Paths.get(path));
 		
@@ -49,8 +52,6 @@ public class CommonDAOImpl implements CommonDAO{
 		//1. create a mapper
 		ObjectMapper objectMapper = new ObjectMapper();
 		//model 선언
-		List<MatchRecord> matchRecordList = new ArrayList<MatchRecord>();
-		try{
 			
 		//2. As Array
 //		myMap = objectMapper.readValue(mapData, HashMap.class);
@@ -75,11 +76,16 @@ public class CommonDAOImpl implements CommonDAO{
 		} catch (JsonMappingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			System.err.println("에러");
+			e.printStackTrace();
+		} catch (NullPointerException e){
+			System.err.println("NullPointerException 에러 ");
 			e.printStackTrace();
 		}
 		return matchRecordList;
 	}
 	
+	@Override
 	public HashMap<String, Team> getTeamNameListWithSetTeamObject(List<MatchRecord> list){
 		Iterator<MatchRecord> iter = list.iterator();
 //		TreeSet<String> deDuplication = new TreeSet<String>();
@@ -123,6 +129,7 @@ public class CommonDAOImpl implements CommonDAO{
 		
 	}
 	
+	@Override
 	public void setMatchResult(List<MatchRecord> list, HashMap<String, Team> teamObjList){
 		
 //		Team homeObj = new Team();
@@ -165,6 +172,62 @@ public class CommonDAOImpl implements CommonDAO{
 			awayObj.setGoalDiff();
 		}//end of for
 	}
+	
+	@Override
+	public void setMatchResultOfHomeAway(List<MatchRecord> list, HashMap<String, Team> teamObjList, String homeOrAway){
+		
+		MatchRecord row = null;
+		for(int i= 0; i<list.size(); i++){
+			row = list.get(i);
+			Team homeObj = teamObjList.get(row.getHometeam());
+			Team awayObj = teamObjList.get(row.getAwayteam());
+			
+			if(homeOrAway.equals("home")){
+				//H=HomeTeam 승 , A=AwayTeam 승, D=Draw
+				if(row.getFtr().equals("H")){
+					homeObj.setSumWin(1);	//H승 +1
+					
+					homeObj.setSumPoint(3); //H승점 +3
+				}else if (row.getFtr().equals("A")){
+					homeObj.setSumLose(1);	//H패 +1
+				}else {
+					homeObj.setSumDraw(1);	//H무 +1
+					
+					homeObj.setSumPoint(1); //H승점 +1
+				}
+					
+				homeObj.setSumMatchCount(); //경기수 +1
+				
+				homeObj.setSumGoal(row.getFthg()); //H득점 +
+	
+				homeObj.setSumGoalLoss(row.getFtag()); //H실점 +
+				
+				homeObj.setGoalDiff();
+			}else if (homeOrAway.equals("away")){
+				//H=HomeTeam 승 , A=AwayTeam 승, D=Draw
+				if(row.getFtr().equals("H")){
+					awayObj.setSumLose(1);	//A패  +1
+					
+				}else if (row.getFtr().equals("A")){
+					awayObj.setSumWin(1);	//A승 +1
+					
+					awayObj.setSumPoint(3); //A승점 +3
+				}else {
+					awayObj.setSumDraw(1);	//A무 +1
+					
+					awayObj.setSumPoint(1); //A승점 +1
+				}
+					
+				awayObj.setSumMatchCount(); //경기수 +1
+				
+				awayObj.setSumGoal(row.getFtag()); //A득점 +
+	
+				awayObj.setSumGoalLoss(row.getFthg()); //A실점 +
+				
+				awayObj.setGoalDiff();
+			}
+		}//end of for
+	}
 
 /* Comparator 내부 클래스 사용
 	public List<Team> sortDescByPoint(HashMap<String, Team> teamObjList){
@@ -181,7 +244,9 @@ public class CommonDAOImpl implements CommonDAO{
 		return list;
 	}
 */
+///////////////////////////////// 정 렬 ////////////////////////////////////////////////////////
 	//승점
+	@Override
 	public List<Team> sortDescByPoint(HashMap<String, Team> teamObjList){
 		List<Team> list = new ArrayList<Team>(teamObjList.values());
 		Collections.sort(list, new Team());
@@ -189,6 +254,7 @@ public class CommonDAOImpl implements CommonDAO{
 	}
 	
 	//골득실
+	@Override
 	public List<Team> sortDescByGoaldiff(HashMap<String, Team> teamObjList){
 		List<Team> list = new ArrayList<Team>(teamObjList.values());
 		Collections.sort(list, new Comparator<Team>() {
@@ -202,6 +268,7 @@ public class CommonDAOImpl implements CommonDAO{
 	}
 	
 	//득점
+	@Override
 	public List<Team> sortDescByGoal(HashMap<String, Team> teamObjList){
 		List<Team> list = new ArrayList<Team>();
 		list.addAll(teamObjList.values());
@@ -210,6 +277,7 @@ public class CommonDAOImpl implements CommonDAO{
 	}
 	
 	//실점
+	@Override
 	public List<Team> sortDescByGoalLoss(HashMap<String, Team> teamObjList){
 		List<Team> list = new ArrayList<Team>();
 		list.addAll(teamObjList.values());
@@ -267,7 +335,6 @@ public class CommonDAOImpl implements CommonDAO{
 				return 0;
 			}
 		}
-		
-	}
+	}// end of SortDescByGoalLoss
 }
 

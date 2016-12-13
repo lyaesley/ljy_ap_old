@@ -13,6 +13,8 @@ public interface CommonDAO {
 	HashMap<String, Team> getTeamNameListWithSetTeamObject(List<MatchRecord> list);
 	
 	void setMatchResult(List<MatchRecord> list, HashMap<String, Team> teamObjList);
+
+	void setMatchResultOfHomeAway(List<MatchRecord> list, HashMap<String, Team> teamObjList, String homeOrAway);
 	
 	List<Team> sortDescByPoint(HashMap<String, Team> teamObjList);
 	

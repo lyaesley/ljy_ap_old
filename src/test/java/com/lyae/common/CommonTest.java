@@ -19,25 +19,37 @@ public class CommonTest {
 	public static void main(String[] args) throws IOException {
 		Logger log = Logger.getLogger(CommonTest.class.getName());
 		CommonDAOImpl dao = new CommonDAOImpl();
+		CommonServiceImpl srv = new CommonServiceImpl();
+		
 		// TODO Auto-generated method stub
 		if(log.isDebugEnabled()){
 			log.debug("start test");
 			
 		}
 //		System.out.println("start test");
-		List<MatchRecord> epl = new ArrayList<MatchRecord>();
+		List<MatchRecord> sp1 = new ArrayList<MatchRecord>();
 		List<Team> sortList = new ArrayList<Team>();
+		List<Team> o1 = new ArrayList<Team>();
+		List<Team> o2 = new ArrayList<Team>();
 		List<HashMap<String,Team>> testlist = new ArrayList<HashMap<String, Team>>();
 		
-		epl = dao.jasonToObject("epl");
-		System.out.println("00"+epl);
-		HashMap<String, Team> teamObj = dao.getTeamNameListWithSetTeamObject(epl);
+		sp1 = dao.jasonToObject("epl");
+		System.out.println("00"+sp1);
+		HashMap<String, Team> teamObj = dao.getTeamNameListWithSetTeamObject(sp1);
 		System.out.println("11"+teamObj);
-		dao.setMatchResult(epl, teamObj);
+		dao.setMatchResult(sp1, teamObj);
 		System.out.println("22"+teamObj);
-		sortList = dao.sortDescByGoalLoss(teamObj);
+		sortList = dao.sortDescByPoint(teamObj);
 		System.out.println("33"+sortList);
 		
+		HashMap<String, Team> teamObj2 = dao.getTeamNameListWithSetTeamObject(sp1);
+		System.out.println("-----"+teamObj2);
+		
+		dao.setMatchResultOfHomeAway(sp1, teamObj2, "home");
+		o1 = dao.sortDescByPoint(teamObj2);
+		System.out.println("44"+o1);
+		o2 = srv.sortResultList(sortList, o1);
+		System.out.println("55"+o2);
 		
 	}
 
