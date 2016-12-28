@@ -19,23 +19,73 @@
 		<option value="<c:url value='/soccer/${league }/home'/>">홈 경기 결과</option>
 		<option value="<c:url value='/soccer/${league }/away'/>">어웨이 경기 결과</option>
 	</select>
-	<table class="board_list">
+	<table class="board_list" width="100%" style="text-align:center;">
 		<colgroup>
+			<col width="2%"/>
 			<col width="5%"/>
-			<col width="*%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
-			<col width="5%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			
+			<col width="2%"/>
+			
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			
+			<col width="2%"/>
+			
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
+			<col width="2%"/>
 		</colgroup>
 		<thead>
 			<tr>
+				<th colspan="10">LEAGUE</th>
+				<th colspan="9">HOME MATCH</th>
+				<th colspan="9">AWAY MATCH</th>
+			</tr>
+		
+			<tr>
 				<th scope="col">순위</th>
 				<th scope="col">팀</th>
+				<th scope="col">경기수</th>
+				<th scope="col">승점</th>
+				<th scope="col">승</th>
+				<th scope="col">무</th>
+				<th scope="col">패</th>
+				<th scope="col">득점</th>
+				<th scope="col">실점</th>
+				<th scope="col">득실차</th>
+				
+				<th scope="col"></th>
+				<!-- 홈 -->
+				<th scope="col">경기수</th>
+				<th scope="col">승점</th>
+				<th scope="col">승</th>
+				<th scope="col">무</th>
+				<th scope="col">패</th>
+				<th scope="col">득점</th>
+				<th scope="col">실점</th>
+				<th scope="col">득실차</th>
+				
+				<th scope="col"></th>
+				<!-- 어웨이 -->
 				<th scope="col">경기수</th>
 				<th scope="col">승점</th>
 				<th scope="col">승</th>
@@ -62,6 +112,28 @@
 						<td>${row.goal }</td>
 						<td>${row.goalLoss }</td>
 						<td>${row.goalDiff }</td>
+						
+						<td></td>
+						
+						<td>${home[status.index].teamName },${home[status.index].matchCount }</td>
+						<td>${home[status.index].point }</td>
+						<td>${home[status.index].win }</td>
+						<td>${home[status.index].draw }</td>
+						<td>${home[status.index].lose }</td>
+						<td>${home[status.index].goal }</td>
+						<td>${home[status.index].goalLoss }</td>
+						<td>${home[status.index].goalDiff }</td>
+						
+						<td></td>
+						
+						<td>${away[status.index].teamName },${away[status.index].matchCount }</td>
+						<td>${away[status.index].point }</td>
+						<td>${away[status.index].win }</td>
+						<td>${away[status.index].draw }</td>
+						<td>${away[status.index].lose }</td>
+						<td>${away[status.index].goal }</td>
+						<td>${away[status.index].goalLoss }</td>
+						<td>${away[status.index].goalDiff }</td>
 					</tr>
 				</c:forEach>
 			</c:when>

@@ -33,7 +33,7 @@ public class CommonTest {
 		List<Team> o2 = new ArrayList<Team>();
 		List<HashMap<String,Team>> testlist = new ArrayList<HashMap<String, Team>>();
 		
-		sp1 = dao.jasonToObject("epl");
+		sp1 = dao.jasonToObject("spain");
 		System.out.println("00"+sp1);
 		HashMap<String, Team> teamObj = dao.getTeamNameListWithSetTeamObject(sp1);
 		System.out.println("11"+teamObj);
@@ -48,7 +48,7 @@ public class CommonTest {
 		dao.setMatchResultOfHomeAway(sp1, teamObj2, "home");
 		o1 = dao.sortDescByPoint(teamObj2);
 		System.out.println("44"+o1);
-		o2 = srv.sortResultList(sortList, o1);
+		o2 = srv.sortHomeAwaybyResult(sortList, o1);
 		System.out.println("55"+o2);
 		
 	}

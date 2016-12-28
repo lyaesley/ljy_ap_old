@@ -16,5 +16,5 @@ public interface CommonService {
 
 	List<Team> list(List<MatchRecord> matchList, String homeOrAway) throws IOException;
 
-	List<Team> sortResultList(List<Team> o1, List<Team> o2);
+	List<Team> sortHomeAwaybyResult(List<Team> o1, List<Team> o2);
 }

@@ -96,18 +96,17 @@ public class CommonServiceImpl implements CommonService {
 	}
 	
 	@Override
-	public List<Team> sortResultList(List<Team> o1, List<Team> o2){
+	public List<Team> sortHomeAwaybyResult(List<Team> o1, List<Team> o2){
 		String team1, team2;
-		Team temp = new Team();
 
-		for(int i = 0; i < o1.size()-1; i++){
-			Loop2: for(int j = 0; j < o2.size()-1; j++){
-				team1 = o1.get(i).getTeamName();
+		for(int i = 0; i < o1.size(); i++){
+			team1 = o1.get(i).getTeamName();
+			Loop2: for(int j = i; j < o2.size(); j++){
 				team2 = o2.get(j).getTeamName();
 				
 				if(team1.equals(team2)){
 					Collections.swap(o2, i, j);
-//					break Loop2;
+					break Loop2;
 				}
 			}
 		}

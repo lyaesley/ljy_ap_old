@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lyae.model.MatchRecord;
+import com.lyae.model.Team;
 
 @Controller
 @RequestMapping("/soccer")
@@ -28,10 +29,16 @@ public class CommonController {
 	public String list(@PathVariable String league, Model model, HttpSession session) throws IOException{
 		
 		List<MatchRecord> matchList = commonService.getMatchResult(league);
+		List<Team> all = commonService.list(matchList,"ALL");
+		List<Team> home = commonService.list(matchList,"home");
+		List<Team> away = commonService.list(matchList,"away");
+		commonService.sortHomeAwaybyResult(all, home);
+		home = commonService.sortHomeAwaybyResult(all, home);
+		away = commonService.sortHomeAwaybyResult(all, away);
 		session.setAttribute("MatchList", matchList);
-		model.addAttribute("list",commonService.list(matchList,"ALL"));
-		model.addAttribute("listHome",commonService.list(matchList,"home"));
-		model.addAttribute("listAway",commonService.list(matchList,"away"));
+		model.addAttribute("list",all);
+		model.addAttribute("home",home);
+		model.addAttribute("away",away);
 		model.addAttribute("league", league);
 		return "soccer/list";
 	}
