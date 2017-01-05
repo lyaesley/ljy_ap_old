@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href="<c:url value="/css/bootstrap.css"/>" rel="stylesheet">
 </head>
 <body>
 	<h2>${league} 경기 결과</h2>
@@ -19,7 +20,11 @@
 		<option value="<c:url value='/soccer/${league }/home'/>">홈 경기 결과</option>
 		<option value="<c:url value='/soccer/${league }/away'/>">어웨이 경기 결과</option>
 	</select>
-	<table class="board_list" width="100%" style="text-align:center;">
+<%--  
+	<img src="<c:url value="/resources/img/Desert.jpg"/>" width="100px" height="100px" />
+	<img src="<c:url value="/img/Desert.jpg"/>" width="100px" height="100px" />
+ --%>
+	<table class="board_list table table-striped" style="text-align:center; width:100%;">
 		<colgroup>
 			<col width="2%"/>
 			<col width="5%"/>
@@ -56,9 +61,9 @@
 		</colgroup>
 		<thead>
 			<tr>
-				<th colspan="10">LEAGUE</th>
+				<th colspan="11">LEAGUE</th>
 				<th colspan="9">HOME MATCH</th>
-				<th colspan="9">AWAY MATCH</th>
+				<th colspan="8">AWAY MATCH</th>
 			</tr>
 		
 			<tr>
@@ -115,7 +120,9 @@
 						
 						<td></td>
 						
-						<td>${home[status.index].teamName },${home[status.index].matchCount }</td>
+						<td>
+						<%-- ${home[status.index].teamName }, --%>
+						${home[status.index].matchCount }</td>
 						<td>${home[status.index].point }</td>
 						<td>${home[status.index].win }</td>
 						<td>${home[status.index].draw }</td>
@@ -126,7 +133,9 @@
 						
 						<td></td>
 						
-						<td>${away[status.index].teamName },${away[status.index].matchCount }</td>
+						<td>
+						<%-- ${away[status.index].teamName }, --%>
+						${away[status.index].matchCount }</td>
 						<td>${away[status.index].point }</td>
 						<td>${away[status.index].win }</td>
 						<td>${away[status.index].draw }</td>

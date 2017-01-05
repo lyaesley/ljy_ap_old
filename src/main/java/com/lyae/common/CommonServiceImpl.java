@@ -31,9 +31,9 @@ public class CommonServiceImpl implements CommonService {
 	@Override
 	public List<Team> list(List<MatchRecord> matchList, String homeOrAway) throws IOException {
 		// TODO Auto-generated method stub
-		//json 파일 읽어서 MatchRecord Object 에 리스트 저장
+		//json �뙆�씪 �씫�뼱�꽌 MatchRecord Object �뿉 由ъ뒪�듃 ���옣
 //		List<MatchRecord> matchList = dao.jasonToObject(fileName);
-		// 팀별 Object 생성
+		// ��蹂� Object �깮�꽦
 		HashMap<String, Team> teamObj = dao.getTeamNameListWithSetTeamObject(matchList);
 		
 		if(homeOrAway.equals("home")){
@@ -41,11 +41,11 @@ public class CommonServiceImpl implements CommonService {
 		}else if(homeOrAway.equals("away")){
 			dao.setMatchResultOfHomeAway(matchList, teamObj, homeOrAway);
 		}else{
-			// 매치 결과 팀별 Object 에 저장
+			// 留ㅼ튂 寃곌낵 ��蹂� Object �뿉 ���옣
 			dao.setMatchResult(matchList, teamObj);
 		}
 		
-		// 순위 정렬
+		// �닚�쐞 �젙�젹
 		List<Team> leagueList = dao.sortDescByPoint(teamObj);
 
 //		List<Team> leagueList = new ArrayList<Team>(teamObj.values());
@@ -77,7 +77,7 @@ public class CommonServiceImpl implements CommonService {
 				}
 			}else if(homeOrAway == "away"){
 				for(MatchRecord i : matchList){
-					if(i.getHometeam().equals(team)){
+					if(i.getAwayteam().equals(team)){
 //						MatchRecord teamObj = new MatchRecord();
 						matchofTeam.add(i);
 					}

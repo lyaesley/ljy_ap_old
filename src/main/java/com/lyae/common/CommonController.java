@@ -32,7 +32,7 @@ public class CommonController {
 		List<Team> all = commonService.list(matchList,"ALL");
 		List<Team> home = commonService.list(matchList,"home");
 		List<Team> away = commonService.list(matchList,"away");
-		commonService.sortHomeAwaybyResult(all, home);
+		//commonService.sortHomeAwaybyResult(all, home);
 		home = commonService.sortHomeAwaybyResult(all, home);
 		away = commonService.sortHomeAwaybyResult(all, away);
 		session.setAttribute("MatchList", matchList);
@@ -50,7 +50,7 @@ public class CommonController {
 		}
 //		session.getAttribute("MatchList");
 //		model.addAttribute("list", session.getAttribute("MatchList"));
-		model.addAttribute("list", commonService.view(league, team, "ALL"));
+		model.addAttribute("list", commonService.view(league, team, "all"));
 		model.addAttribute("team", team);
 		return "soccer/view";
 	}
