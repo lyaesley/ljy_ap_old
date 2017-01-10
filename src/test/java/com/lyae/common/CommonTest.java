@@ -50,6 +50,8 @@ public class CommonTest {
 		System.out.println("44"+o1);
 		o2 = srv.sortHomeAwaybyResult(sortList, o1);
 		System.out.println("55"+o2);
+		//ÇÖÇÈ½º Ãß°¡
+		System.out.println("66");
 		
 	}
 
