@@ -16,6 +16,15 @@
         </layout>   
     </appender>
     
+    <appender name="filelog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="D:/log/log.log" />
+		<param name="Append" value="true"/>
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+    
 	<!-- Application Loggers -->
 	<logger name="com.lyae.common">
 		<level value="debug" />
@@ -42,8 +51,9 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="info" />
 		<appender-ref ref="console" />
+		<appender-ref ref="filelog" />
 	</root>
 	
 </log4j:configuration>
