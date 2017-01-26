@@ -26,9 +26,9 @@
 	</appender>
     
 	<!-- Application Loggers -->
-	<logger name="com.lyae.common">
+	<!-- <logger name="com.lyae.common">
 		<level value="debug" />
-	</logger>
+	</logger> -->
 	<logger name="com.lyae">
 		<level value="debug" />
 	</logger>
