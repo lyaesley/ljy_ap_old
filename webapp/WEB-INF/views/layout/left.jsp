@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	left
+	left2
 	
 </body>
 </html>
