@@ -11,15 +11,6 @@
 </head>
 <body>
 	left
-	asdf
-	asdf
-	asdf
-	<br>
-	<br>
-	v
-	<br>
-	<br>
-	<br>
 	
 </body>
 </html>
