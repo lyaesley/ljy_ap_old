@@ -60,14 +60,12 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+	<!-- task 사용 선언. xml 설정에  bean task , xsi 추가 -->
 	<!-- <task:annotation-driven/> -->
-
-	<!-- 스케쥴러파일이 존재하는 패키지 설정 -->
-	<!-- <context:component-scan base-package="com.lyae.corn" /> -->
-	<!-- 해당 태그들은 크론탭을 설정에 필요한 태그들 -->
+	<!-- 쓰레드 풀 설정시 아래와 같이.. 설정 안할경우 default = pool-size="1" -->
+	<!-- <task:executor id="myExecutor" pool-size="5"/> -->
 	<!-- <task:scheduler id="jobScheduler" pool-size="10" /> -->
-	<!-- <task:annotation-driven scheduler="jobScheduler" /> -->
-
-
+	<!-- <task:annotation-driven executor="myExecutor" scheduler="jobScheduler" /> -->
+	
 
 </beans:beans>
