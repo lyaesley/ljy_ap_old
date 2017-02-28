@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+<meta charset="utf-8"/>
+</head>
+
+<body>
+
+<script>
+var cc = function(){
+var a = document.getElementById('aa').value;
+var ee = document.getElementById('ee').value
+a = a.split(/[\r\n]+/);
+var val = '';
+for (var node of a) {
+if (!(/^\s*$/).test(node))
+	var innode = '\''+(node.replace(/\t/g, "', '").trim())+'\'';
+
+	innode = innode.replace(/'[\d]{4}\/[\d]{2}\/[\d]{2} [\d]{2}\:[\d]{2}\:[\d]{2}'/g, function(e){ return "to_date("+e+", 'YYYY/MM/DD HH24:MI:SS')"; });
+	val += 'insert into '+ee+' values ('+innode+'); commit;\n';
+
+
+}
+document.getElementById('dd').value = val;
+};
+</script>
+<input type="text" id="ee" value="테이블" />
+<textarea id="aa" style="width:800px; height:200px;"></textarea>
+<input type="button" value="변환" onclick="cc();"/><br/>
+<textarea id="dd" style="width:800px; height:200px;"></textarea>
+
+
+</body>
+</html>
