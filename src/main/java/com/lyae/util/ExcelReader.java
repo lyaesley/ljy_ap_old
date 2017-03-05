@@ -1,4 +1,4 @@
-package com.lyae.common;
+package com.lyae.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,5 +1,6 @@
 package com.lyae.common;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -85,6 +86,32 @@ public class CommonDAOImpl implements CommonDAO{
 		return matchRecordList;
 	}
 	
+	@Override
+	public String objectToJson(List<MatchRecord> list){
+		
+		ObjectMapper objectMapper = null;
+		String jsonString = null;
+		
+		try {
+			objectMapper = new ObjectMapper();
+			// result.json 파일로 저장
+//			objectMapper.writeValue(new File("result.json"), list);
+			// byte[] 로 저장
+			byte[] jsonBytes = objectMapper.writeValueAsBytes(list);
+			// string 으로 저장
+			 jsonString = objectMapper.writeValueAsString(list);
+			
+			
+//			System.out.println(jsonBytes);
+//			System.out.println(jsonString);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return jsonString;
+	}
 	@Override
 	public HashMap<String, Team> getTeamNameListWithSetTeamObject(List<MatchRecord> list){
 		Iterator<MatchRecord> iter = list.iterator();

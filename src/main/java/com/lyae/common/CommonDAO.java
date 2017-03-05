@@ -23,5 +23,7 @@ public interface CommonDAO {
 	List<Team> sortDescByGoal(HashMap<String, Team> teamObjList);
 	
 	List<Team> sortDescByGoalLoss(HashMap<String, Team> teamObjList);
+
+	String objectToJson(List<MatchRecord> list);
 	
 }

@@ -35,6 +35,8 @@ public class CommonTest {
 		
 		sp1 = dao.jasonToObject("spain");
 		System.out.println("00"+sp1);
+		String sJson = dao.objectToJson(sp1);
+		System.out.println("objectToJson"+ sJson);
 		HashMap<String, Team> teamObj = dao.getTeamNameListWithSetTeamObject(sp1);
 		System.out.println("11"+teamObj);
 		dao.setMatchResult(sp1, teamObj);
