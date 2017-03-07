@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
@@ -69,6 +71,9 @@ public class BB {
 		System.out.println(formatCurrentDay());
 		System.out.println(formatCurrentMonth());
 		System.out.println(getKeyCode());
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("sysdate","asdfasf");
+	    System.out.println(map.toString() );	
 	}
 	
 	

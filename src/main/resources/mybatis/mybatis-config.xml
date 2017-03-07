@@ -6,5 +6,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
  	<typeAliases>
 		<typeAlias type="com.lyae.model.MatchRecord" alias="soccer"/>
+		<typeAlias type="java.util.HashMap" alias="HashMap"/>
 	</typeAliases>
 </configuration>

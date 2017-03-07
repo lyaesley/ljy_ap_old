@@ -12,7 +12,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	
-	<select id="selectTest" resultMap="hashmap">
-		SELECT 'value' key from dual;
+	<select id="selectTest" resultType="hashmap">
+		<![CDATA[
+		SELECT sysdate from dual
+		]]>
 	</select>
 </mapper>
