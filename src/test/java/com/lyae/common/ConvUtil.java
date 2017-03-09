@@ -20,9 +20,9 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.extern.log4j.Log4j;
+//import lombok.extern.log4j.Log4j;
 
-@Log4j
+//@Log4j
 public class ConvUtil {
 	
 	final static char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
@@ -82,7 +82,7 @@ public class ConvUtil {
 			return sb.toString();
 		} catch (UnsupportedEncodingException e) {
 			// 사실 일어날 수 없는 오류이다.
-			log.error(toString("변환중 오류 발생 : ", e));
+//			log.error(toString("변환중 오류 발생 : ", e));
 		}
 		return null;
 	}
