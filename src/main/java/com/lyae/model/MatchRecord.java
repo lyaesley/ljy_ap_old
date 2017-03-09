@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MatchRecord {
 	
+	private String div;
 	private String date;
 	private String hometeam;
 	private String awayteam;
@@ -13,8 +14,15 @@ public class MatchRecord {
 	private int ftag;
 	private int hthg;
 	private int htag;
+	private String htr;
 	
 	
+	public String getDiv() {
+		return div;
+	}
+	public void setDiv(String div) {
+		this.div = div;
+	}
 	public String getDate() {
 		return date;
 	}
@@ -62,6 +70,12 @@ public class MatchRecord {
 	}
 	public void setHtag(int htag) {
 		this.htag = htag;
+	}
+	public String getHtr() {
+		return htr;
+	}
+	public void setHtr(String htr) {
+		this.htr = htr;
 	}
 	@Override
 	public String toString() {

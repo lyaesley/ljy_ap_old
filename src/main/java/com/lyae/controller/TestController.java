@@ -14,8 +14,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -26,7 +28,15 @@ import com.lyae.model.MatchRecord;
 @Controller
 public class TestController {
 	Logger log = Logger.getLogger(TestController.class.getName());
+	@Autowired
+	TestDao testDao;
 	
+	@RequestMapping(value="/db/test")
+	@ResponseBody
+	public String dbTest(){
+		
+		return testDao.dbTest().toString();
+	}
 	
 	@RequestMapping(value="/jsonTest")
 	public List<MatchRecord> jackson() throws IOException{
