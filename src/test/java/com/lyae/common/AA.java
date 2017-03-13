@@ -23,6 +23,12 @@ public class AA {
 		cal.add(Calendar.HOUR, 3);
 		System.out.println(dateFormat.format(cal.getTime()));
 		
+		Calendar cal2 = Calendar.getInstance();
+		cal2.set(Calendar.DATE, 5);
+		
+		System.out.println(cal2.get(Calendar.DAY_OF_WEEK)); // 요일 1:일 2: 월 .. 7: 토
+		System.out.println(cal2.get(Calendar.WEEK_OF_MONTH)); //월의몇번째 주?
+		System.out.println(cal2.get(Calendar.DAY_OF_WEEK_IN_MONTH)); // 이번달의 몇번째 요일인지?
 	}
 	
 	
