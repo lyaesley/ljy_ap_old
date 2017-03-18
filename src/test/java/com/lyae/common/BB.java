@@ -13,8 +13,8 @@ import java.util.TimeZone;
 
 import org.junit.Test;
 
-import com.impay.common.Crypto;
-import com.impay.util.CommonUtil;
+//import com.impay.common.Crypto;
+//import com.impay.util.CommonUtil;
 
 public class BB {
 	
@@ -67,7 +67,7 @@ public class BB {
         
         return tmpRandom;
     } 
-    
+    /*
     @Test
 	public void impaytest()	{
 		System.out.println("========impay test========");
@@ -97,6 +97,7 @@ public class BB {
 		System.out.println("복호화 : " + sss);
 		
 	}
+	*/
     
 	public static void main(String[] args){
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Asia/Seoul"), Locale.KOREAN);
