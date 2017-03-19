@@ -67,6 +67,12 @@ public class MapTest {
 		listThree.add(eight);
 		listThree.add(nine);
 		System.out.println(listThree);
+		ArrayList<HashMap<String, String>> listadd = new ArrayList<HashMap<String,String>>();
+		
+		listadd.addAll(listOne);
+		listadd.addAll(listTwo);
+		listadd.addAll(listThree);
+		System.out.println("listadd : " + listadd);
 		
 		ArrayList<ArrayList<HashMap<String, String>>> allStat = new ArrayList<ArrayList<HashMap<String, String>>>();
 		allStat.add(listOne);
@@ -99,13 +105,6 @@ public class MapTest {
 			}	
 		}
 		System.out.println("all : " + all);
-		
-//		
-//			workMap.put(node.getKey(), node.getValue());
-//			all.add(workMap);
-//			workMap.clear();
-//		}
-		
 	}
 
 	
