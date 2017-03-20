@@ -1,4 +1,4 @@
-package com.tsp.service;
+
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 
@@ -72,10 +72,11 @@ public class StatService {
 				storeMap.put(node.get("COMP_MDL"), node);
 			}
 			
-			System.out.println(resultMap);
-			if (resultMap != null ){
-				JsonData = ConvUtil.toJsonObjectByClass(storeMap);
-			}
+			System.out.println(storeMap);
+//			System.out.println(resultMap);
+//			if (resultMap != null ){
+//				JsonData = ConvUtil.toJsonObjectByClass(resultMap);
+//			}
 			
 			setParam.put("C_VAL1", sYmd);
 			setParam.put("C_VAL2", eYmd);
@@ -90,7 +91,7 @@ public class StatService {
 			param.put("eYmd", eYmd);
 			resultMap =  statDAO.getRewardMdl(param);
 			if (resultMap != null ){
-				JsonData = ConvUtil.toJsonObjectByClass(resultMap);
+//				JsonData = ConvUtil.toJsonObjectByClass(resultMap);
 			}
 			
 			setParam.put("C_VAL1", sYmd);
