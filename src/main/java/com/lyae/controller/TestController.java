@@ -25,12 +25,16 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lyae.model.MatchRecord;
+import com.lyae.service.TestService;
 
 @Controller
 public class TestController {
 	Logger log = Logger.getLogger(TestController.class.getName());
 	@Autowired
 	TestDao testDao;
+	@Autowired
+	TestService testService;;
+	
 	
 	@RequestMapping("/cal/test")
 	@ResponseBody
@@ -126,4 +130,30 @@ public class TestController {
 		}
 	}
 	
+	@RequestMapping(value="/stat/insertRewardMdl.do", produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String insertRewardMdl(@RequestParam HashMap<String,String> param){
+		/**
+		 * @parameter
+		 * 필수 : date = yyyyMM
+		 * 선택 : flag= model 
+		 */
+		if( (param.get("date")==null || !param.get("date").matches("[\\d]{6}")) ){
+			return "날짜를 넣어주세요. ?date=yyyyMM";
+		}
+
+		if (param.get("flag") == null || !(param.get("flag").equals("m") || param.get("flag").equals("d")) ){
+			return "날짜 범위를 넣어주세요. m : 월, d : 일 &flag=m or d " ;
+		}
+		String result = "실패";
+		
+		try {
+			result = testService.insertRewardMdl(param);
+		} catch (Exception e){
+			System.out.println("insertRewardMdl 에러 ::" + e.toString() + "::" + e.getMessage());
+		}
+		
+		
+		return result;
+	}
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="stat">
+	<insert id="insertStat" parameterType="hashmap">
+		INSERT INTO tss_stat
+		(
+		SEQ,
+		STAT_CD,
+		STAT_DATA,
+		<if test="C_VAL1 != null">
+			C_VAL1,
+		</if>
+		<if test="C_VAL2 != null">
+			C_VAL2,
+		</if>
+		<if test="C_VAL3 != null">
+			C_VAL3,
+		</if>
+		<if test="C_VAL4 != null">
+			C_VAL4,
+		</if>
+		 REG_DT
+		) 
+		VALUES
+		(
+			TSS_STAT_SEQ.NEXTVAL,
+			#{STAT_CD},
+			#{STAT_DATA},
+		<if test="C_VAL1 != null">
+			#{C_VAL1},
+		</if>
+		<if test="C_VAL2 != null">
+			#{C_VAL2},
+		</if>
+		<if test="C_VAL3 != null">
+			#{C_VAL3},
+		</if>
+		<if test="C_VAL4 != null">
+			#{C_VAL4},
+		</if>
+			SYSDATE
+		)
+	</insert>
+	
+	<select id="getRewardMdl" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT * FROM tss_model
+		WHERE month >=  #{sYmd} 
+		AND month < #{eYmd}
+		]]>
+	</select>
+</mapper>

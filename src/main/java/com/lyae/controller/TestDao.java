@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.internal.matchers.SubstringMatcher;
@@ -44,6 +45,14 @@ public class TestDao {
 		System.out.println(eymd);
 		
 		
+	}
+
+	public List<Map<String, String>> getRewardMdl(HashMap<String, String> param) {
+		return sqlSessionTemplate.selectList("stat.getRewardMdl", param);
+	}
+
+	public void insertStat(Map<String, String> param) {
+		sqlSessionTemplate.insert("stat.insertStat", param);		
 	}
 	
 }
