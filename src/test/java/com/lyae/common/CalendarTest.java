@@ -20,6 +20,8 @@ public class CalendarTest {
 		System.out.println(cal.get(Calendar.YEAR) +"년"+(cal.get(Calendar.MONTH)+2) +"월"+ cal.get(Calendar.DATE));
 		
 		cal.set(Calendar.DATE, 1);
+		System.out.println("이거 : " + cal.get(Calendar.DATE));
+		System.out.println("이거2 : " + cal.get(Calendar.MONTH));
 		System.out.println(dateFormat.format(cal.getTime()));
 		cal.add(Calendar.HOUR, 3);
 		System.out.println(dateFormat.format(cal.getTime()));
