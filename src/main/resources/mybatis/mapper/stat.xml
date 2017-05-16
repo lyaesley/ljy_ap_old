@@ -52,4 +52,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND month < #{eYmd}
 		]]>
 	</select>
+	
+	<select id="getProductJoin" parameterType="hashmap" resultType="hashmap">
+		select 
+		    PROD_ID as PROD_ID, 
+		    (select B.SCLS_CD_NM from TS_SCLS_CD B where B.SCLS_CD=A.PROD_ID and B.LCLS_CD='A007') as PROD_NM,
+		    count(1) as CNT
+		from 
+		    TS_CUST_INFO## A
+		where 
+		    CHG_CD IN('1','2')
+		    group by PROD_ID
+	</select>
+	
+	
 </mapper>
