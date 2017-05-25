@@ -17,7 +17,7 @@ import com.lyae.model.MatchRecord;
 import com.lyae.model.Team;
 
 @Controller
-@RequestMapping("/soccerf")
+@RequestMapping("/soccer")
 //@SessionAttributes("MatchResult")
 public class CommonController {
 	Logger log = Logger.getLogger(CommonController.class.getName());

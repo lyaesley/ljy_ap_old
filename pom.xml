@@ -22,9 +22,22 @@
 	        <name>ORACLE JDBC Repository</name>
 	        <url>http://maven.jahia.org/maven2</url>
 	    </repository>
+	    
+	    <repository>
+		<id>oracle</id>
+		<name>ORACLE JDBC Repository</name>
+		<url>https://maven.atlassian.com/3rdparty/</url>
+	</repository>
+	
 	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>12.1.0.1-atlassian-hosted</version>
+		</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -135,12 +148,13 @@
 		    <version>4.3.7.RELEASE</version>
 		</dependency>
 
+<!-- 메이븐 저장소에서 지원 안함.... 
 		<dependency>
 	        <groupId>com.oracle</groupId>
 	        <artifactId>ojdbc6</artifactId>
 	    	<version>11.1.0.7.0</version>
   		</dependency>
-		
+-->
 		<!-- Mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
