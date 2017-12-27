@@ -1,0 +1,126 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function on_key_card(){
+	
+
+	var width = 350;
+	var height = 475;
+	var xpos = (screen.width - width) / 2;
+	var ypos = (screen.width - height) / 6;
+	var position = "top=" + ypos + ",left=" + xpos;
+	var features = position + ", width="+width+", height="+height+",toolbar=no, location=no"; 
+
+	webbrowser=navigator.appVersion;
+	
+	var order_form = document.order_form;
+	window.name = "STPG_CLIENT";
+	//order_form.POid.value ="20101012101051";
+	var wallet = window.open("", "STPG_WALLET", features);
+	if (wallet == null) {
+		if ((webbrowser.indexOf("Windows NT 5.1")!=-1) && (webbrowser.indexOf("SV1")!=-1)) {	// Windows XP Service Pack 2
+			alert("팝업이 차단되었습니다. 브라우저의 상단 노란색 [알림 표시줄]을 클릭하신 후 팝업창 허용을 선택하여 주세요.");
+		} else {
+			alert("팝업이 차단되었습니다. 해당사이트의 팝업을 항상허용으로 설정해 주세요.");
+		}
+		return false;
+	}
+	
+	order_form.target = "STPG_WALLET";
+
+	// 테스트
+	order_form.action = "http://61.250.95.27:8001/card/NoAuthCardAction.do";
+	// 리얼 
+	// 	order_form.action = "https://pg.settlebank.co.kr/card/NoAuthCardAction.do";
+	
+	order_form.submit();
+}
+
+</script>
+</head>
+<body>
+<form name="order_form" method="post">
+
+<!-- 결과처리를 위한 파라미터 -->
+<input type="hidden" name="PHash" value="">
+<input type="hidden" name="PData" value="">
+<input type="hidden" name="PStateCd" value="">
+<input type="hidden" name="POrderId" value="">
+
+<table border="0">
+    <tr>
+        <td>P_MID 상점아이디</td>
+        <td><input type="text" name="PMid" value="" size="50"></td>
+    <tr>
+    <tr>
+        <td>P_OID 주문번호</td>
+        <td><input type="text" name="POid" value="" size="50"></td>
+    </tr>
+    <tr>
+        <td>P_AMT 금액</td> <!--금액(,제외) -->
+        <td><input type="text" name="PAmt" value="" size="50"></td>
+    </tr>
+    <tr>
+       <td>P_MNAME</td>
+        <td><input type="text" name="PMname" value="" size="50"></td>
+    </tr>
+    <tr>
+        <td>P_UNAME</td>
+        <td><input type="text" name="PUname" value="" size="50"></td>
+    </tr>
+
+	<tr>
+        <td>P_ENAME</td>
+        <td><input type="text" name="PEname" value="" size="50"></td>
+    </tr>
+    <tr>
+		<td>P_GOODS 상품명</td>
+		<td><input type="text" name="PGoods" value="" size="50"></td>
+	</tr>
+	<tr>
+		<td>PUserId 가맹점 아이디</td>
+		<td><input type="text" name="PUserId" value="" size="50"></td>
+	</tr>
+	<tr>
+		<td>결제자 e-mail </td>
+		<td>
+			<input type="text" name="PEmail" value=""> <!-- 결제자 e-mail -->
+		</td> 
+	</tr>
+	<tr>
+		<td>PExpYear</td>
+		<td><input type="text" name="PExpYear" value="" size="50"></td>
+	</tr>
+	<tr>
+		<td>PExpMon</td>
+		<td>
+		<input type="text" name="PExpMon" value="" size="50"></td>
+	</tr>
+	<tr>
+		<td>PCardNo</td>
+		<td><input type="text" name="PCardNo" value="" size="50"></td>
+	</tr>
+	<tr>
+		<td>PUserId 가맹점 아이디</td>
+		<td>
+			<input type="text" name="PUserid" value="testID"> 
+		</td>
+	</tr>
+	<tr>
+		<td>PIntMon</td>
+		<td><input type="text" name="PIntMon" value="0" size="50"></td>
+	</tr>
+	<tr>
+		<td>PNoteUrl 결제성공시 노티전송받을 url</td>
+		<td><input type="text" name="PNoteUrl" value="" size="50"></td>
+	</tr>
+</table>
+</form>
+<input type="button" value="결제테스트" onclick="on_key_card()"/>
+</body>
+</html>

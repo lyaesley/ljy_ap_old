@@ -1,9 +1,13 @@
 package com.lyae.controller;
 
+import java.awt.TextArea;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,6 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.tags.form.TextareaTag;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -52,9 +57,9 @@ public class TestController {
 	
 	@RequestMapping(value="/jsonTest")
 	public List<MatchRecord> jackson() throws IOException{
-		byte[] mapData = Files.readAllBytes(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.json"));
+		byte[] mapData = Files.readAllBytes(Paths.get("classpass:/json/epl.json"));
 //		Map<String,String> myMap = new HashMap<String, String>();
-		List<String> jsonTxt =  Files.readAllLines(Paths.get("D://Dev/workspace/Ljy_AP/src/main/resources/json/epl.json"));
+		List<String> jsonTxt =  Files.readAllLines(Paths.get("classpass:/json/epl.json"));
 		//1. create a mapper
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<MatchRecord> eplList = new ArrayList<MatchRecord>();
@@ -155,5 +160,26 @@ public class TestController {
 		
 		
 		return result;
+	}
+	
+	@RequestMapping("/test/textArea")
+	@ResponseBody
+	public String abc(@RequestParam Map<String,String> param) throws IOException{
+		String textArea = param.get("textArea");
+		System.out.println(textArea);
+		
+		StringReader sr = new StringReader(textArea);
+		BufferedReader br = new BufferedReader(sr);
+		
+		String line ="";
+		String[] column = null;
+		while (( line = br.readLine() )!= null){
+			System.out.println("readLine : " + line);
+			column=line.split("\\s+");
+			System.out.println("column : " + Arrays.toString(column));
+		}
+	
+		
+		return textArea;
 	}
 }

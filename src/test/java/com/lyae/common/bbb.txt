@@ -1,6 +1,558 @@
-1
-2
-3
-4
-5
-6
+update ph_user set use_yn='N' where store_id in ('D237330005'
+ 'D236950027',
+ 'D237630004',
+ 'D633570012',
+ 'D335980017',
+ 'D633550019',
+ 'D633550022',
+ 'D149100013',
+ 'D335960022',
+ 'D336130008',
+ 'D149170005',
+ 'D149170008',
+ 'D149160005',
+ 'D149160013',
+ 'D149140004',
+ 'D149100006',
+ 'D149100010',
+ 'D149100011',
+ 'D149130012',
+ 'D149110004',
+ 'D237140011',
+ 'D237140013',
+ 'D237140014',
+ 'D237140016',
+ 'D236950016',
+ 'D335960012',
+ 'D335960013',
+ 'D335980013',
+ 'D335980015',
+ 'D633550011',
+ 'D633570013',
+ 'D633570017',
+ 'D633890002',
+ 'D633890003',
+ 'D237140019',
+ 'D151440114',
+ 'D151440125',
+ 'D151440110',
+ 'D151440127',
+ 'D151440129',
+ 'D151440111',
+ 'D151440061',
+ 'D151440104',
+ 'D151440122',
+ 'D151430143',
+ 'D237290009',
+ 'D151450222',
+ 'D151450115',
+ 'D151440185',
+ 'D151420098',
+ 'D151440121',
+ 'D151440133',
+ 'D151440105',
+ 'D151440098',
+ 'D151440097',
+ 'D151440082',
+ 'D149170016',
+ 'D335960024',
+ 'D149150015',
+ 'D151440198',
+ 'D151440199',
+ 'D151420102',
+ 'D151420101',
+ 'D151433019',
+ 'D151420019',
+ 'D151420030',
+ 'D151450216',
+ 'D151440135',
+ 'D151420068',
+ 'D151440140',
+ 'D151440138',
+ 'D151440163',
+ 'D151440155',
+ 'D151440153',
+ 'D151450187',
+ 'D151450140',
+ 'D151450164',
+ 'D150420017',
+ 'D151450189',
+ 'D151450182',
+ 'D151430008',
+ 'D151430119',
+ 'D151430120',
+ 'D151440147',
+ 'D151420140',
+ 'D151440237',
+ 'D151450190',
+ 'D151440227',
+ 'D151430162',
+ 'D151430164',
+ 'D151430174',
+ 'D151420157',
+ 'D151420180',
+ 'D151430205',
+ 'D151430217',
+ 'D151430219',
+ 'D151450316',
+ 'D151430215',
+ 'D151430189',
+ 'D151430084',
+ 'D151430207',
+ 'D151430191',
+ 'D151450299',
+ 'D151450288',
+ 'D151440283',
+ 'D151440280',
+ 'D151420120',
+ 'D151430167',
+ 'D151430133',
+ 'D151440235',
+ 'D151440236',
+ 'D151450233',
+ 'D151450290',
+ 'D151450211',
+ 'D151450277',
+ 'D151450272',
+ 'D151430169',
+ 'D151430170',
+ 'D151430172',
+ 'D151430195',
+ 'D151430194',
+ 'D151440238',
+ 'D151450281',
+ 'D151430147',
+ 'D151440232',
+ 'D151440258',
+ 'D151450289',
+ 'D151420147',
+ 'D151420154',
+ 'D151430201',
+ 'D151440040',
+ 'D151430150',
+ 'D151430199',
+ 'D151450302',
+ 'D151430046',
+ 'D151420122',
+ 'D151440256',
+ 'D151420033',
+ 'D151450231',
+ 'D151430176',
+ 'D151440262',
+ 'D151440264',
+ 'D151440229',
+ 'D151420143',
+ 'D151420138',
+ 'D151440239',
+ 'D151420175',
+ 'D151440268',
+ 'D151440257',
+ 'D151440022',
+ 'D151440255',
+ 'D151440018',
+ 'D151430225',
+ 'D151440284',
+ 'D151440281',
+ 'D151450324',
+ 'D151440298',
+ 'D151430222',
+ 'D151440141',
+ 'D151450295',
+ 'D151420162',
+ 'D151450322',
+ 'D151450315',
+ 'D151440031',
+ 'D151450332',
+ 'D151450212',
+ 'D151450321',
+ 'D151443377',
+ 'D151440289',
+ 'D151440290',
+ 'D151440017',
+ 'D151420171',
+ 'D151440294',
+ 'D151440032',
+ 'D151430224',
+ 'D151440291',
+ 'D151430229',
+ 'D151440263',
+ 'D151440267',
+ 'D633550015',
+ 'D151450318',
+ 'D151440088',
+ 'D151430204',
+ 'D151420130');
+
+
+update ph_store set use_yn='N'  where store_id= 'D237330005';
+update ph_store set use_yn='N'  where store_id= 'D236950027';
+update ph_store set use_yn='N'  where store_id= 'D237630004';
+update ph_store set use_yn='N'  where store_id= 'D633570012';
+update ph_store set use_yn='N'  where store_id= 'D335980017';
+update ph_store set use_yn='N'  where store_id= 'D633550019';
+update ph_store set use_yn='N'  where store_id= 'D633550022';
+update ph_store set use_yn='N'  where store_id= 'D149100013';
+update ph_store set use_yn='N'  where store_id= 'D335960022';
+update ph_store set use_yn='N'  where store_id= 'D336130008';
+update ph_store set use_yn='N'  where store_id= 'D149170005';
+update ph_store set use_yn='N'  where store_id= 'D149170008';
+update ph_store set use_yn='N'  where store_id= 'D149160005';
+update ph_store set use_yn='N'  where store_id= 'D149160013';
+update ph_store set use_yn='N'  where store_id= 'D149140004';
+update ph_store set use_yn='N'  where store_id= 'D149100006';
+update ph_store set use_yn='N'  where store_id= 'D149100010';
+update ph_store set use_yn='N'  where store_id= 'D149100011';
+update ph_store set use_yn='N'  where store_id= 'D149130012';
+update ph_store set use_yn='N'  where store_id= 'D149110004';
+update ph_store set use_yn='N'  where store_id= 'D237140011';
+update ph_store set use_yn='N'  where store_id= 'D237140013';
+update ph_store set use_yn='N'  where store_id= 'D237140014';
+update ph_store set use_yn='N'  where store_id= 'D237140016';
+update ph_store set use_yn='N'  where store_id= 'D236950016';
+update ph_store set use_yn='N'  where store_id= 'D335960012';
+update ph_store set use_yn='N'  where store_id= 'D335960013';
+update ph_store set use_yn='N'  where store_id= 'D335980013';
+update ph_store set use_yn='N'  where store_id= 'D335980015';
+update ph_store set use_yn='N'  where store_id= 'D633550011';
+update ph_store set use_yn='N'  where store_id= 'D633570013';
+update ph_store set use_yn='N'  where store_id= 'D633570017';
+update ph_store set use_yn='N'  where store_id= 'D633890002';
+update ph_store set use_yn='N'  where store_id= 'D633890003';
+update ph_store set use_yn='N'  where store_id= 'D237140019';
+update ph_store set use_yn='N'  where store_id= 'D151440114';
+update ph_store set use_yn='N'  where store_id= 'D151440125';
+update ph_store set use_yn='N'  where store_id= 'D151440110';
+update ph_store set use_yn='N'  where store_id= 'D151440127';
+update ph_store set use_yn='N'  where store_id= 'D151440129';
+update ph_store set use_yn='N'  where store_id= 'D151440111';
+update ph_store set use_yn='N'  where store_id= 'D151440061';
+update ph_store set use_yn='N'  where store_id= 'D151440104';
+update ph_store set use_yn='N'  where store_id= 'D151440122';
+update ph_store set use_yn='N'  where store_id= 'D151430143';
+update ph_store set use_yn='N'  where store_id= 'D237290009';
+update ph_store set use_yn='N'  where store_id= 'D151450222';
+update ph_store set use_yn='N'  where store_id= 'D151450115';
+update ph_store set use_yn='N'  where store_id= 'D151440185';
+update ph_store set use_yn='N'  where store_id= 'D151420098';
+update ph_store set use_yn='N'  where store_id= 'D151440121';
+update ph_store set use_yn='N'  where store_id= 'D151440133';
+update ph_store set use_yn='N'  where store_id= 'D151440105';
+update ph_store set use_yn='N'  where store_id= 'D151440098';
+update ph_store set use_yn='N'  where store_id= 'D151440097';
+update ph_store set use_yn='N'  where store_id= 'D151440082';
+update ph_store set use_yn='N'  where store_id= 'D149170016';
+update ph_store set use_yn='N'  where store_id= 'D335960024';
+update ph_store set use_yn='N'  where store_id= 'D149150015';
+update ph_store set use_yn='N'  where store_id= 'D151440198';
+update ph_store set use_yn='N'  where store_id= 'D151440199';
+update ph_store set use_yn='N'  where store_id= 'D151420102';
+update ph_store set use_yn='N'  where store_id= 'D151420101';
+update ph_store set use_yn='N'  where store_id= 'D151433019';
+update ph_store set use_yn='N'  where store_id= 'D151420019';
+update ph_store set use_yn='N'  where store_id= 'D151420030';
+update ph_store set use_yn='N'  where store_id= 'D151450216';
+update ph_store set use_yn='N'  where store_id= 'D151440135';
+update ph_store set use_yn='N'  where store_id= 'D151420068';
+update ph_store set use_yn='N'  where store_id= 'D151440140';
+update ph_store set use_yn='N'  where store_id= 'D151440138';
+update ph_store set use_yn='N'  where store_id= 'D151440163';
+update ph_store set use_yn='N'  where store_id= 'D151440155';
+update ph_store set use_yn='N'  where store_id= 'D151440153';
+update ph_store set use_yn='N'  where store_id= 'D151450187';
+update ph_store set use_yn='N'  where store_id= 'D151450140';
+update ph_store set use_yn='N'  where store_id= 'D151450164';
+update ph_store set use_yn='N'  where store_id= 'D150420017';
+update ph_store set use_yn='N'  where store_id= 'D151450189';
+update ph_store set use_yn='N'  where store_id= 'D151450182';
+update ph_store set use_yn='N'  where store_id= 'D151430008';
+update ph_store set use_yn='N'  where store_id= 'D151430119';
+update ph_store set use_yn='N'  where store_id= 'D151430120';
+update ph_store set use_yn='N'  where store_id= 'D151440147';
+update ph_store set use_yn='N'  where store_id= 'D151420140';
+update ph_store set use_yn='N'  where store_id= 'D151440237';
+update ph_store set use_yn='N'  where store_id= 'D151450190';
+update ph_store set use_yn='N'  where store_id= 'D151440227';
+update ph_store set use_yn='N'  where store_id= 'D151430162';
+update ph_store set use_yn='N'  where store_id= 'D151430164';
+update ph_store set use_yn='N'  where store_id= 'D151430174';
+update ph_store set use_yn='N'  where store_id= 'D151420157';
+update ph_store set use_yn='N'  where store_id= 'D151420180';
+update ph_store set use_yn='N'  where store_id= 'D151430205';
+update ph_store set use_yn='N'  where store_id= 'D151430217';
+update ph_store set use_yn='N'  where store_id= 'D151430219';
+update ph_store set use_yn='N'  where store_id= 'D151450316';
+update ph_store set use_yn='N'  where store_id= 'D151430215';
+update ph_store set use_yn='N'  where store_id= 'D151430189';
+update ph_store set use_yn='N'  where store_id= 'D151430084';
+update ph_store set use_yn='N'  where store_id= 'D151430207';
+update ph_store set use_yn='N'  where store_id= 'D151430191';
+update ph_store set use_yn='N'  where store_id= 'D151450299';
+update ph_store set use_yn='N'  where store_id= 'D151450288';
+update ph_store set use_yn='N'  where store_id= 'D151440283';
+update ph_store set use_yn='N'  where store_id= 'D151440280';
+update ph_store set use_yn='N'  where store_id= 'D151420120';
+update ph_store set use_yn='N'  where store_id= 'D151430167';
+update ph_store set use_yn='N'  where store_id= 'D151430133';
+update ph_store set use_yn='N'  where store_id= 'D151440235';
+update ph_store set use_yn='N'  where store_id= 'D151440236';
+update ph_store set use_yn='N'  where store_id= 'D151450233';
+update ph_store set use_yn='N'  where store_id= 'D151450290';
+update ph_store set use_yn='N'  where store_id= 'D151450211';
+update ph_store set use_yn='N'  where store_id= 'D151450277';
+update ph_store set use_yn='N'  where store_id= 'D151450272';
+update ph_store set use_yn='N'  where store_id= 'D151430169';
+update ph_store set use_yn='N'  where store_id= 'D151430170';
+update ph_store set use_yn='N'  where store_id= 'D151430172';
+update ph_store set use_yn='N'  where store_id= 'D151430195';
+update ph_store set use_yn='N'  where store_id= 'D151430194';
+update ph_store set use_yn='N'  where store_id= 'D151440238';
+update ph_store set use_yn='N'  where store_id= 'D151450281';
+update ph_store set use_yn='N'  where store_id= 'D151430147';
+update ph_store set use_yn='N'  where store_id= 'D151440232';
+update ph_store set use_yn='N'  where store_id= 'D151440258';
+update ph_store set use_yn='N'  where store_id= 'D151450289';
+update ph_store set use_yn='N'  where store_id= 'D151420147';
+update ph_store set use_yn='N'  where store_id= 'D151420154';
+update ph_store set use_yn='N'  where store_id= 'D151430201';
+update ph_store set use_yn='N'  where store_id= 'D151440040';
+update ph_store set use_yn='N'  where store_id= 'D151430150';
+update ph_store set use_yn='N'  where store_id= 'D151430199';
+update ph_store set use_yn='N'  where store_id= 'D151450302';
+update ph_store set use_yn='N'  where store_id= 'D151430046';
+update ph_store set use_yn='N'  where store_id= 'D151420122';
+update ph_store set use_yn='N'  where store_id= 'D151440256';
+update ph_store set use_yn='N'  where store_id= 'D151420033';
+update ph_store set use_yn='N'  where store_id= 'D151450231';
+update ph_store set use_yn='N'  where store_id= 'D151430176';
+update ph_store set use_yn='N'  where store_id= 'D151440262';
+update ph_store set use_yn='N'  where store_id= 'D151440264';
+update ph_store set use_yn='N'  where store_id= 'D151440229';
+update ph_store set use_yn='N'  where store_id= 'D151420143';
+update ph_store set use_yn='N'  where store_id= 'D151420138';
+update ph_store set use_yn='N'  where store_id= 'D151440239';
+update ph_store set use_yn='N'  where store_id= 'D151420175';
+update ph_store set use_yn='N'  where store_id= 'D151440268';
+update ph_store set use_yn='N'  where store_id= 'D151440257';
+update ph_store set use_yn='N'  where store_id= 'D151440022';
+update ph_store set use_yn='N'  where store_id= 'D151440255';
+update ph_store set use_yn='N'  where store_id= 'D151440018';
+update ph_store set use_yn='N'  where store_id= 'D151430225';
+update ph_store set use_yn='N'  where store_id= 'D151440284';
+update ph_store set use_yn='N'  where store_id= 'D151440281';
+update ph_store set use_yn='N'  where store_id= 'D151450324';
+update ph_store set use_yn='N'  where store_id= 'D151440298';
+update ph_store set use_yn='N'  where store_id= 'D151430222';
+update ph_store set use_yn='N'  where store_id= 'D151440141';
+update ph_store set use_yn='N'  where store_id= 'D151450295';
+update ph_store set use_yn='N'  where store_id= 'D151420162';
+update ph_store set use_yn='N'  where store_id= 'D151450322';
+update ph_store set use_yn='N'  where store_id= 'D151450315';
+update ph_store set use_yn='N'  where store_id= 'D151440031';
+update ph_store set use_yn='N'  where store_id= 'D151450332';
+update ph_store set use_yn='N'  where store_id= 'D151450212';
+update ph_store set use_yn='N'  where store_id= 'D151450321';
+update ph_store set use_yn='N'  where store_id= 'D151443377';
+update ph_store set use_yn='N'  where store_id= 'D151440289';
+update ph_store set use_yn='N'  where store_id= 'D151440290';
+update ph_store set use_yn='N'  where store_id= 'D151440017';
+update ph_store set use_yn='N'  where store_id= 'D151420171';
+update ph_store set use_yn='N'  where store_id= 'D151440294';
+update ph_store set use_yn='N'  where store_id= 'D151440032';
+update ph_store set use_yn='N'  where store_id= 'D151430224';
+update ph_store set use_yn='N'  where store_id= 'D151440291';
+update ph_store set use_yn='N'  where store_id= 'D151430229';
+update ph_store set use_yn='N'  where store_id= 'D151440263';
+update ph_store set use_yn='N'  where store_id= 'D151440267';
+update ph_store set use_yn='N'  where store_id= 'D633550015';
+update ph_store set use_yn='N'  where store_id= 'D151450318';
+update ph_store set use_yn='N'  where store_id= 'D151440088';
+update ph_store set use_yn='N'  where store_id= 'D151430204';
+update ph_store set use_yn='N'  where store_id= 'D151420130';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

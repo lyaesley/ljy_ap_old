@@ -20,6 +20,17 @@ public class sortTest {
 		System.out.println(list);
 		Collections.sort(list);
 		System.out.println(list);
+		
+		abc(1);
 	}
-
+	static void abc(int a){
+		System.out.println("1");
+		
+		if( a ==10 ){
+			System.out.println("10");
+			return;
+		}
+		abc(a+1);
+		System.out.println("여기는 몇번: " + a);
+	}
 }

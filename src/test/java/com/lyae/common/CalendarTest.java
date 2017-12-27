@@ -9,7 +9,7 @@ public class CalendarTest {
 	public static void main(String args[]){
 		
 		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d HH:mm:ss"); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("M"); 
 		System.out.println(cal.getTime());
 		
 		System.out.println(cal.get(Calendar.YEAR));
@@ -42,11 +42,11 @@ public class CalendarTest {
 		}
 		
 		Date today = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy 년 M월 d일 ");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy 년 MM월 dd일 ");
 		System.out.println(sdf.format(today));
 		
 		System.out.println("=================");
-		String ymd = "20170413";
+		String ymd = "20170829";
 		System.out.println(ymd);
 		String eYmd = String.valueOf( (Integer.parseInt(ymd) + 1) );
 		System.out.println("eYmd : " + eYmd);
@@ -56,11 +56,12 @@ public class CalendarTest {
 		cal3.set(Calendar.MONTH, Integer.parseInt(ymd.substring(4,6)) - 1);
 		cal3.set(Calendar.YEAR, Integer.parseInt(ymd.substring(0, 4)));
 		
-		System.out.println(cal3.get(Calendar.YEAR) +"년"+(cal3.get(Calendar.MONTH )+1) +"월"+ cal3.get(Calendar.DATE));
+		System.out.println("이거 확인 : " + cal3.get(Calendar.YEAR) +"년"+(cal3.get(Calendar.MONTH )+1) +"월"+ cal3.get(Calendar.DATE));
 
 		cal3.add(Calendar.DATE, 31);
 		System.out.println(cal3.get(Calendar.YEAR) +"년"+(cal3.get(Calendar.MONTH )+1) +"월"+ cal3.get(Calendar.DATE));
 		
+		System.out.println("=================");
 	}
 	
 	
