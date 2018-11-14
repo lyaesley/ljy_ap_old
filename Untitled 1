@@ -1,175 +1,72 @@
-IPHONE_X_64GB	A066 |
-IPHONE_X_64GW	A067 |
-IPHONE_X_256GB	A068 |
-IPHONE_X_256GW	A069 |
-IPHONE_X_64GB_DEMO	A05I
-IPHONE_X_64GW_DEMO	A05J
 
 
 
-('1084520212'
-,'1096208808'
-,'1221448618'
-,'1280421406'
-,'1454383509'
-,'1484978700'
-,'1519751202'
-,'1553573409'
-,'1626386301'
-,'1706776806'
-,'1795733909'
-,'1865075308'
-,'1907399503'
-,'1912536118'
-,'1976925908'
-,'7001048543'
-,'7003243087'
-,'7008764011'
-,'7014882314'
-,'7016624787'
-,'7019745785'
-,'7019985578'
-,'7020559229'
-,'7021472931'
-,'7025642166'
-,'7027964535'
-,'7028510160'
-,'7028825619'
-,'7035119652'
-,'7036150885'
-,'7036418425'
-,'7036591319'
-,'7037363097'
-,'7039084051'
-,'7039309126'
-,'7039321322'
-,'7040074467'
-,'7040844227'
-,'7041314444'
-,'7042421572'
-,'7042444676'
-,'7042513287'
-,'7043857972'
-,'7043965821'
-,'7044122915'
-,'7044335875'
-,'7048103785'
-,'7048773173'
-,'7049068701'
-,'7049737008'
-,'7050758265'
-,'7052544194'
-,'7052767729'
-,'7052843061'
-,'7189002877'
-,'7189277350'
-,'7190791005'
-,'7191102394'
-,'7192063004'
-,'7192136796'
-,'7210013087'
-,'7210269639'
-,'7210503669'
-,'7214024987'
-,'7215852496'
-,'7216110232'
-,'7219016447'
-,'7219375584'
-,'7219613663'
-,'7221728547'
-,'7224797798'
-,'7225833872'
-,'7226532309'
-,'7226669537'
-,'7228972505'
-,'7229938737'
-,'7231517382'
-,'7234201768'
-,'7234603260'
-,'7234808162'
-,'7235682874'
-,'7235892670'
-,'7236289582'
-,'7238914597'
-,'7240449173'
-,'7241858062'
-,'7242313379'
-,'7242412701'
-,'7242971882'
-,'7243082162'
-,'7243204598'
-,'7243312141'
-,'7245923856'
-,'7246441884'
-,'7246500234'
-,'7247133941'
-,'7247233284'
-,'7247385414'
-,'7247886572'
-,'7248149309'
-,'7248249400'
-,'7248942512'
-,'7249061903'
-,'7249934149'
-,'7250306026'
-,'7250493733'
-,'7250494565'
-,'7250606635'
-,'7250768319'
-,'7251412878'
-,'7251857070'
-,'7253219378'
-,'7253450400'
-,'7253454689'
-,'7253770191'
-,'7254163203'
-,'7255981629'
-,'7259130405'
-,'7260267893'
-,'7260430449'
-,'7263332056'
-,'7266535088'
-,'7267642835'
-,'7269352252'
-,'7269833889'
-,'7269834531'
-,'7269836250'
-,'7269839796'
-,'7269848066'
-,'7269853776'
-,'7269859252'
-,'7269860171'
-,'7269870386'
-,'7269875876'
-,'7269878313'
-,'7269878315'
-,'7269886503'
-,'7269888926'
-,'7269917782'
-,'7269975100'
-,'7269999318'
-,'7270008829'
-,'7270011724'
-,'7270030368'
-,'7270036393'
-,'7270058333'
-,'7270069709'
-,'7270094270'
-,'7270097681'
-,'7270101920'
-,'7270110050'
-,'7270111526'
-,'7270163470'
-,'7270176498'
-,'7270937782'
-,'7270937930'
-,'7270944495'
-,'7224358760'
-,'7250583462'
-,'7251162622'
-,'7263059468'
-,'1201688714'
-,'7233073881'
-,'7234723758'
-,'7241419931'
-,'7243490573')
+insert into ts_lcls_cd values('ST10', 'POC 대분류', 'Y', 'POC 대분류', SYSDATE);
+insert into ts_lcls_cd values('ST11', 'POC TM완료', 'Y', 'POC TM완료', SYSDATE);
+insert into ts_lcls_cd values('ST12', 'POC 부재', 'Y', 'POC 부재', SYSDATE);
+insert into ts_lcls_cd values('ST13', 'POC 보류', 'Y', 'POC 보류', SYSDATE);
+insert into ts_lcls_cd values('ST14', 'POC 대리점배정', 'Y', 'POC 대리점배정', SYSDATE);
+insert into ts_lcls_cd values('ST15', 'POC 철회', 'Y', 'POC 철회', SYSDATE);
+insert into ts_lcls_cd values('ST16', 'POC VOC', 'Y', 'POC VOC', SYSDATE);
+insert into ts_lcls_cd values('ST17', 'POC 반려', 'Y', 'POC 반려', SYSDATE);
+
+insert into ts_scls_cd values ('ST10', 'ST11', 'TM완료', 1, 'Y', 'TM완료', SYSDATE);
+insert into ts_scls_cd values ('ST10', 'ST12', '부재', 2, 'Y', '부재', SYSDATE);
+insert into ts_scls_cd values ('ST10', 'ST13', '보류', 3, 'Y', '보류', SYSDATE);
+insert into ts_scls_cd values ('ST10', 'ST14', '대리점배정', 4, 'Y', '대리점배정', SYSDATE);
+insert into ts_scls_cd values ('ST10', 'ST15', '철회', 5, 'Y', '철회', SYSDATE);
+insert into ts_scls_cd values ('ST10', 'ST16', 'VOC', 6, 'Y', 'VOC', SYSDATE);
+insert into ts_scls_cd values ('ST10', 'ST17', '반려', 6, 'Y', 'VOC', SYSDATE);
+
+
+insert into ts_scls_cd values ('ST11', '1', '즉시 카드결제 완료', 1, 'Y', '즉시 카드결제 완료', SYSDATE);
+insert into ts_scls_cd values ('ST11', '2', '현금 입금대기', 2, 'Y', '현금 입금대기', SYSDATE);
+insert into ts_scls_cd values ('ST11', '3', '카드 결제대기', 3, 'Y', '카드 결제대기', SYSDATE);
+
+insert into ts_scls_cd values ('ST12', '1', '1일차 부재1', 1, 'Y', '1일차 부재1', SYSDATE);
+insert into ts_scls_cd values ('ST12', '2', '1일차 부재2', 2, 'Y', '1일차 부재2', SYSDATE);
+insert into ts_scls_cd values ('ST12', '3', '2일차 부재1', 3, 'Y', '2일차 부재1', SYSDATE);
+insert into ts_scls_cd values ('ST12', '4', '2일차 부재2', 4, 'Y', '2일차 부재2', SYSDATE);
+insert into ts_scls_cd values ('ST12', '5', '장기부재', 5, 'Y', '장기부재', SYSDATE);
+
+insert into ts_scls_cd values ('ST13', '1', '명의자부재', 1, 'Y', '명의자부재', SYSDATE);
+insert into ts_scls_cd values ('ST13', '2', '자기부담금 관련', 2, 'Y', '자기부담금 관련', SYSDATE);
+insert into ts_scls_cd values ('ST13', '3', '색상 관련', 3, 'Y', '색상 관련', SYSDATE);
+insert into ts_scls_cd values ('ST13', '4', '대체단말기 선정관련', 4, 'Y', '대체단말기 선정관련', SYSDATE);
+insert into ts_scls_cd values ('ST13', '5', '재통화 예정', 5, 'Y', '재통화 예정', SYSDATE);
+insert into ts_scls_cd values ('ST13', '6', '기타', 6, 'Y', '기타', SYSDATE);
+
+insert into ts_scls_cd values ('ST14', '1', '대리점배정(고객요청)', 1, 'Y', '대리점배정(고객요청)', SYSDATE);
+insert into ts_scls_cd values ('ST14', '2', '대리점배정(색상불만)', 2, 'Y', '대리점배정(색상불만)', SYSDATE);
+insert into ts_scls_cd values ('ST14', '3', '대리점배정(대체단말불만)', 3, 'Y', '대리점배정(대체단말불만)', SYSDATE);
+insert into ts_scls_cd values ('ST14', '4', '대리점배정(자기부담금불만)', 4, 'Y', '대리점배정(자기부담금불만)', SYSDATE);
+insert into ts_scls_cd values ('ST14', '5', '대리점배정(기타)', 5, 'Y', '대리점배정(기타)', SYSDATE);
+
+insert into ts_scls_cd values ('ST15', '1', '분실단말기습득', 1, 'Y', '분실단말기습득', SYSDATE);
+insert into ts_scls_cd values ('ST15', '2', '고객보상철회', 2, 'Y', '고객보상철회', SYSDATE);
+insert into ts_scls_cd values ('ST15', '3', '색상관련 보상철회', 3, 'Y', '색상관련 보상철회', SYSDATE);
+insert into ts_scls_cd values ('ST15', '4', '대체단말불만 보상철회', 4, 'Y', '대체단말불만 보상철회', SYSDATE);
+insert into ts_scls_cd values ('ST15', '5', '자기부담금불만 보상철회', 5, 'Y', '자기부담금불만 보상철회', SYSDATE);
+insert into ts_scls_cd values ('ST15', '6', '기타', 6, 'Y', '기타', SYSDATE);
+
+insert into ts_scls_cd values ('ST16', '1', '재고부족 불만', 1, 'Y', '재고부족 불만', SYSDATE);
+insert into ts_scls_cd values ('ST16', '2', '단말기 색상 불만', 2, 'Y', '단말기 색상 불만', SYSDATE);
+insert into ts_scls_cd values ('ST16', '3', '대체단말기 불만', 3, 'Y', '대체단말기 불만', SYSDATE);
+insert into ts_scls_cd values ('ST16', '4', '자기부담금 불만', 4, 'Y', '자기부담금 불만', SYSDATE);
+insert into ts_scls_cd values ('ST16', '5', '대리점 배정 관련 불만', 5, 'Y', '대리점 배정 관련 불만', SYSDATE);
+insert into ts_scls_cd values ('ST16', '6', '불친절', 6, 'Y', '불친절', SYSDATE);
+insert into ts_scls_cd values ('ST16', '7', '기기결함 불만', 7, 'Y', '기기결함 불만', SYSDATE);
+insert into ts_scls_cd values ('ST16', '8', '배송지연 불만', 8, 'Y', '배송지연 불만', SYSDATE);
+insert into ts_scls_cd values ('ST16', '9', '보상지연', 9, 'Y', '보상지연', SYSDATE);
+insert into ts_scls_cd values ('ST16', '10', '기타', 10, 'Y', '기타', SYSDATE);
+
+insert into ts_scls_cd values ('ST17', '1', '반려', 1, 'Y', '반려', SYSDATE);
+
+insert into ts_scls_cd values ('ST16', '0001', '상담', 1, 'Y', '상담', SYSDATE);
+
+
+1일차 부재1
+1일차 부재2
+2일차 부재1
+2일차 부재2
+장기부재

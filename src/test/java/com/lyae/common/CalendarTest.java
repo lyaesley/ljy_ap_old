@@ -62,6 +62,18 @@ public class CalendarTest {
 		System.out.println(cal3.get(Calendar.YEAR) +"년"+(cal3.get(Calendar.MONTH )+1) +"월"+ cal3.get(Calendar.DATE));
 		
 		System.out.println("=================");
+		
+		Calendar cal4 = Calendar.getInstance();
+		System.out.println(cal4.getTime());
+		
+		Date today2 = new Date();
+		SimpleDateFormat sdf2 = new SimpleDateFormat("HHmmss");
+		System.out.println(sdf2.format(today));
+		
+		String aa = "20180514" + sdf2.format(today);
+		System.out.println(aa);
+		
+		
 	}
 	
 	
